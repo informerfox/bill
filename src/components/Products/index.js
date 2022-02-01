@@ -1,13 +1,19 @@
 import React from 'react';
 import Card from '../Card';
 import {useSelector} from 'react-redux';
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Box, Grid, GridItem,Text} from '@chakra-ui/react'
 
 function Products() {
   const items = useSelector(state => state.product.items);
+  const money = useSelector(state => state.user.money);
   console.log(items);
 
-  return <div>Products
+  return <div>
+    <Box mt={2} mb={4} bg='green.400' color='white' height='80px'  >
+      <Text fontSize={40} fontWeight={500} > $ {money} </Text> 
+      </Box>
+
+
     <Grid templateColumns='repeat(3, 1fr)' gap={4}>
       {items.map((item)=>(
       <GridItem key={item.id}>
