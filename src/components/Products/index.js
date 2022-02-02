@@ -5,8 +5,7 @@ import { Box, Grid, GridItem,Text} from '@chakra-ui/react'
 
 function Products() {
   const items = useSelector(state => state.product.items);
-  const money = useSelector(state => state.user.money);
-  console.log(items);
+  const money = useSelector(state => state.product.money);
 
   return <div>
     <Box mt={2} mb={4} bg='green.400' color='white' height='80px'  >
