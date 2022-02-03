@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Products from './components/Products';
 import Receipt from './components/Receipt';
 import { Container } from '@chakra-ui/react'
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
    <Navbar/>
    <Products/>
    <Receipt/>
+   <Footer/>
    </Container>
   );
 }

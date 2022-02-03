@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Box, Button, Center, Image, Input, Text } from '@chakra-ui/react'
 import {updateCount} from "../../redux/Product/productSlice";
+import NumberFormat from 'react-number-format';
 
 function Card({ id }) {
   const items = useSelector(state => state.product.items);
@@ -33,6 +34,16 @@ function Card({ id }) {
 
     control();
   }, [count]);
+
+  useEffect(() => {
+    if(item.productPrice>money ){
+      setisBuyable(true);
+    }
+    if(item.productPrice<money ){
+      setisBuyable(false);
+    }
+  }, [money]);
+  
   
   const buy =()=>{
     setCount(Number(count)+1);
@@ -48,6 +59,7 @@ function Card({ id }) {
     if(count == 0){
       setisSellable(true);
     }
+    
   }
   
  
@@ -59,11 +71,11 @@ function Card({ id }) {
         {item.productName}
       </Text>
       <Text>
-        $ {item.productPrice}
+        <NumberFormat value={item.productPrice} displayType='text' thousandSeparator={true} prefix={'$'} />
       </Text>
       <Box  alignItems='center' m='auto'>
         <Button colorScheme='teal' isDisabled={isBuyable} width='100px' height='40px' me={4}  onClick={()=>buy()}>Buy</Button>
-        <Input type='number'  textAlign='center' value={count} onChange={(e)=>{setCount(e.target.value)}}  width='100px' height='40px' />
+        <Input type='number' min={0} max={maximumBuy} textAlign='center' value={count} onChange={(e)=>{setCount(e.target.value)}}  width='100px' height='40px' />
         <Button colorScheme='red'  isDisabled={isSellable} width='100px' height='40px' ms={4} onClick={()=>sell()} >Sell</Button>
       </Box>
     </Box>);

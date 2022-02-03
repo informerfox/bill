@@ -7,8 +7,8 @@ export const productSlice = createSlice({
     name: 'product',
     initialState:{
         items:data,
-        money: 10000000000,
-        initialMoney:10000000000,
+        money: 100000000000,
+        initialMoney:100000000000,
         negativeMoney:0,
     },
     reducers:{

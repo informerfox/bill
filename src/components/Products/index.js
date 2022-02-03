@@ -13,7 +13,7 @@ function Products() {
       </Box>
 
 
-    <Grid templateColumns='repeat(3, 1fr)' gap={4}>
+      <Grid templateColumns='repeat(3, 1fr)' gap={4}>
       {items.map((item)=>(
       <GridItem key={item.id}>
         <Card id={item.id}/>
