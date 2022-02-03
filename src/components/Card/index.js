@@ -27,13 +27,10 @@ function Card({ id }) {
   useEffect(() => {
     if(item.productPrice>money ){
       setisBuyable(true);
-      console.log("pasif")
     }
     if(item.productPrice<=money ){
       setisBuyable(false);
-      console.log("aktif")
     }
-    console.log(item.productName,"çalıştı")
   }, [money]);
   
   
