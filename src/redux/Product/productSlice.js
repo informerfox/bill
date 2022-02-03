@@ -9,7 +9,6 @@ export const productSlice = createSlice({
         items:data,
         money: 100000000000,
         initialMoney:100000000000,
-        negativeMoney:0,
     },
     reducers:{
         updateCount:(state,action)=>{
@@ -21,10 +20,8 @@ export const productSlice = createSlice({
             state.items.map((tmp)=>{
                 price += Number(tmp.count)*Number(tmp.productPrice);
             });
-            state.money= Number(state.initialMoney-price);
-            if(state.money<0){
-                state.negativeMoney=state.money;
-            }
+            state.money= Number(state.initialMoney)-Number(price);
+          
         }
     },
 })

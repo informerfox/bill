@@ -31,7 +31,7 @@ function Receipt() {
             <GridItem> <Text fontSize={15}> {item.productName}</Text> </GridItem>
             <GridItem><Text> x {item.count}</Text></GridItem>
             <GridItem> <Text color='green.600' > 
-        <NumberFormat value={item.productPrice} displayType='text' thousandSeparator={true} prefix={'$'} />
+        <NumberFormat value={item.productPrice*item.count} displayType='text' thousandSeparator={true} prefix={'$'} />
              </Text></GridItem>
           </Grid>
         )
