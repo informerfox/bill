@@ -19,9 +19,7 @@ function Card({ id }) {
   let maximum=Number(count)+Number(maximumBuy);
   
   useEffect(() => { 
-    if(money!==0){
     dispatch(updateCount({id:item.id, count:count}))
-    }
     
     control();
   }, [count]);
@@ -29,10 +27,13 @@ function Card({ id }) {
   useEffect(() => {
     if(item.productPrice>money ){
       setisBuyable(true);
+      console.log("pasif")
     }
-    if(item.productPrice<money ){
+    if(item.productPrice<=money ){
       setisBuyable(false);
+      console.log("aktif")
     }
+    console.log(item.productName,"çalıştı")
   }, [money]);
   
   
@@ -51,24 +52,19 @@ function Card({ id }) {
       setisSellable(true);
     }
   }
-  console.log(item.productName,count);
 
   const handleChange = (value) =>{
     if(value>maximum && money>0 ){
       setCount(maximum)
-      console.log("1.")
     }
     else if(value<0){
       setCount(0);
-      console.log("2.")
     }
     else if(money ==0 && value<count){
       setCount(value);
-      console.log("3.")
     }
     else{
       setCount(value);
-      console.log("4.")
     }
   }
   
