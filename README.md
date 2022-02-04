@@ -1,6 +1,6 @@
 # Spend Bill Gates' Money
 
- [Netlify](https://spend-bill-gates-money.netlify.app/).
+ Depleyod this project on netlify[Netlify](https://spend-bill-gates-money.netlify.app/).
 
 ## Available Scripts
 
